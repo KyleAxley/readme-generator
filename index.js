@@ -38,9 +38,7 @@ const questions = [
       if (nameInput) {
         return true;
       } else {
-        console.log(
-          "Please provide installation instructions!"
-        );
+        console.log("Please provide installation instructions!");
         return false;
       }
     },
@@ -53,11 +51,52 @@ const questions = [
       if (nameInput) {
         return true;
       } else {
-        console.log(
-          "Please provide instructions for using your project."
-        );
+        console.log("Please provide instructions for using your project.");
         return false;
       }
+    },
+  },
+  //enter license input
+  {
+    type: "list",
+    name: "license",
+    message: "Pick one:",
+    choices: ['Apache License 2.0', 'BSD 3-Clause "New" or "Revised" License', 'BSD 2-Clause "Simplied" or "FreeBSD" license', 'GNU General Public License (GPL)', 'MIT license', 'Mozilla Public License 2.0', 'Common Developement and Distribution License', 'Eclipse Public License Version 2.0']
+  },
+  {
+    type: "confirm",
+    name: "confirmContributors",
+    message: "Would you like to list any contributors to your project?",
+    default: true,
+  },
+  {
+    type: "input",
+    name: "list-contributors",
+    message: "Please list any or all contributors.",
+    when: ({ confirmContributors }) => {
+      if (confirmContributors) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "confirmTesting",
+    message: "Would you like to write tests for your project?",
+    deafault: true,
+  },
+  {
+    type: "input",
+    name: "tests",
+    message: "Please provide instructions on how to perform tests.",
+    when: ({ confirmTesting }) => {
+        if (confirmTesting) {
+            return true;
+        } else {
+            return false;
+        }
     },
   },
 ];
