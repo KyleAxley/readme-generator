@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
-const fs = require("fs");
+const fs = require("fs/promises");
 const { prompt } = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown")
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -59,7 +59,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "username",
+    name: "github",
     message: "Enter your Github username.",
     validate: (nameInput) => {
       if (nameInput) {
@@ -88,7 +88,16 @@ const questions = [
     type: "list",
     name: "license",
     message: "Pick one:",
-    choices: ['Apache License 2.0', 'BSD 3-Clause "New" or "Revised" License', 'BSD 2-Clause "Simplied" or "FreeBSD" license', 'GNU General Public License (GPL)', 'MIT license', 'Mozilla Public License 2.0', 'Common Developement and Distribution License', 'Eclipse Public License Version 2.0']
+    choices: [
+      "Apache License 2.0",
+      'BSD 3-Clause "New" or "Revised" License',
+      'BSD 2-Clause "Simplied" or "FreeBSD" license',
+      "GNU General Public License (GPL)",
+      "MIT license",
+      "Mozilla Public License 2.0",
+      "Common Developement and Distribution License",
+      "Eclipse Public License Version 2.0",
+    ],
   },
   {
     type: "confirm",
@@ -119,23 +128,26 @@ const questions = [
     name: "tests",
     message: "Please provide instructions on how to perform tests.",
     when: ({ confirmTesting }) => {
-        if (confirmTesting) {
-            return true;
-        } else {
-            return false;
-        }
+      if (confirmTesting) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+async function writeToFile(fileName, data) {
+  await fs.writeFile(fileName, data);
+}
 
 // TODO: Create a function to initialize app
 async function init() {
   const answers = await prompt(questions);
-  const markdown = generateMarkdown(answers); 
-  console.log(markdown);
+  const markdown = generateMarkdown(answers);
+  await writeToFile("./dist/readme.md", markdown);
+  console.log("readme file has been successfully created, good job!");
 }
 
 // Function call to initialize app
