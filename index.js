@@ -107,7 +107,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "list-contributors",
+    name: "contributors",
     message: "Please list any or all contributors.",
     when: ({ confirmContributors }) => {
       if (confirmContributors) {
