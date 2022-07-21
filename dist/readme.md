@@ -4,7 +4,7 @@
 
 
 ## Description 
-application that generates a high quality README file at the user's input at the command line 
+application that generates a high quality readme file from the user's input at the command line 
 
 ### Table of Contents 
 *[Installation](#installation)* | *[Usage](#usage)* | *[License](#license)* |  *[Contributing](#contributing)* | *[Questions](#questions)* 
@@ -12,7 +12,7 @@ application that generates a high quality README file at the user's input at the
 ---
 
 ## Installation
-`clone repo, npm init`
+`npm init`
 
 
 ## License  
@@ -20,9 +20,9 @@ The README Generator is covered under the Apache License 2.0. For further detail
      
 
 ## Contributing
-me, myself and I 
+me, myself and I... 
 
 ## Questions
 Like, comment, and subscribe...
-[KyleAxley](https://github.com/KyleAxley)
-<Kanderson7645@yahoo.com>
+[KyleAxley ](https://github.com/KyleAxley )
+<Kanderson7645@yahoo.com >
