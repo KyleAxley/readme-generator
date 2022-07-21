@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const { prompt } = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown")
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -56,6 +57,32 @@ const questions = [
       }
     },
   },
+  {
+    type: "input",
+    name: "username",
+    message: "Enter your Github username.",
+    validate: (nameInput) => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("Please provide your Github username!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter your email address.",
+    validate: (nameInput) => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("Please provide your email address!");
+        return false;
+      }
+    },
+  },
   //enter license input
   {
     type: "list",
@@ -107,6 +134,8 @@ function writeToFile(fileName, data) {}
 // TODO: Create a function to initialize app
 async function init() {
   const answers = await prompt(questions);
+  const markdown = generateMarkdown(answers); 
+  console.log(markdown);
 }
 
 // Function call to initialize app
