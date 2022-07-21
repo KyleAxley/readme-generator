@@ -27,8 +27,8 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if(license) {
     return `
-    ## License  
-    The README Generator is covered under the ${license}. For further details about it vist: [opensource.org](${renderLicenseLink(license)})  
+## License  
+The README Generator is covered under the ${license}. For further details about it vist: [opensource.org](${renderLicenseLink(license)})  
     `
   } 
   return ""; 
@@ -36,9 +36,44 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  const { project_name, project_description, project_Installation, license, github, email } = data;
 
-`;
+  // markdown
+  const markdown = 
+`<h1 align='center'>${project_name}</h1>
+${renderLicenseBadge(license)}
+
+<h2 align='center'>Description</h2>
+
+<p align='center'>${project_description}</p>
+<h2 align='center'>Table of Contents</h2>
+
+<h3 align='center'>
+
+*[Installation](#installation)* | *[Usage](#usage)* | *[License](#license)* | ${ data.confirmContributors ? ` *[Contributing](#contributing)* | ` : '' }${ data.confirmTesting ? `*[Tests](#tests)* | ` : '' }*[Questions](#questions)* 
+
+---
+
+</h3>
+
+## Installation
+\`${project_Installation}\`
+${ data.confirmUsage ? `## Usage
+${data.usage}` : '' }
+${renderLicenseSection(data.license)} ${ data.confirmContributors ? `
+
+## Contributing
+${data.contributing}` : '' } ${ data.confirmTesting ? `
+
+## Tests
+${data.tests}` : '' }
+
+## Questions
+Like, comment, and subscribe...
+[${github}](https://github.com/${github})
+<${email}>`;
+
+  return markdown;
 }
 
 module.exports = generateMarkdown;
