@@ -55,25 +55,22 @@ function generateMarkdown(data) {
   } = data;
 
   // markdown
-  const markdown = `<h1 align='center'>${project_name}</h1>
+  const markdown = `
+## ${project_name} 
 ${renderLicenseBadge(license)}
 
-<h2 align='center'>Description</h2>
 
-<p align='center'>${project_description}</p>
-<h2 align='center'>Table of Contents</h2>
+## Description 
+${project_description}
 
-<h3 align='center'>
-
+### Table of Contents 
 *[Installation](#installation)* | *[Usage](#usage)* | *[License](#license)* | ${
-    data.confirmContributors ? ` *[Contributing](#contributing)* | ` : ""
-  }${
-    data.confirmTesting ? `*[Tests](#tests)* | ` : ""
-  }*[Questions](#questions)* 
+  data.confirmContributors ? ` *[Contributing](#contributing)* | ` : ""
+}${
+  data.confirmTesting ? `*[Tests](#tests)* | ` : ""
+}*[Questions](#questions)* 
 
 ---
-
-</h3>
 
 ## Installation
 \`${project_Installation}\`

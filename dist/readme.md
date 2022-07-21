@@ -1,21 +1,18 @@
-<h1 align='center'>README generator</h1>
+
+## README generator  
 <p><img src="https://img.shields.io/badge/License-Apache License 2.0-green" alt="license badge"></p>
 
-<h2 align='center'>Description</h2>
 
-<p align='center'>application that generates a high quality README file from the user's input at the command line </p>
-<h2 align='center'>Table of Contents</h2>
+## Description 
+application that generates a high quality README file at the user's input at the command line 
 
-<h3 align='center'>
-
+### Table of Contents 
 *[Installation](#installation)* | *[Usage](#usage)* | *[License](#license)* |  *[Contributing](#contributing)* | *[Questions](#questions)* 
 
 ---
 
-</h3>
-
 ## Installation
-`npm i readme-generator `
+`clone repo, npm init`
 
 
 ## License  
@@ -23,9 +20,9 @@ The README Generator is covered under the Apache License 2.0. For further detail
      
 
 ## Contributing
-me, myself and I... 
+me, myself and I 
 
 ## Questions
 Like, comment, and subscribe...
 [KyleAxley](https://github.com/KyleAxley)
-<Kanderson7645@yahoo.com >
+<Kanderson7645@yahoo.com>

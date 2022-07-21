@@ -98,6 +98,7 @@ const questions = [
       "Common Developement and Distribution License",
       "Eclipse Public License Version 2.0",
     ],
+    
   },
   {
     type: "confirm",
@@ -121,7 +122,7 @@ const questions = [
     type: "confirm",
     name: "confirmTesting",
     message: "Would you like to write tests for your project?",
-    deafault: true,
+    default: true,
   },
   {
     type: "input",
